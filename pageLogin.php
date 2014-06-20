@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$login = "";
-$senha = "";
+$login = "wernedres";
+$senha = "123";
 
 if ($login ==$_POST['login'] and $senha ==$_POST['senha']) {
 
@@ -61,7 +61,11 @@ if ($login ==$_POST['login'] and $senha ==$_POST['senha']) {
  
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                 <button type="submit" class="btn btn-primary">Logar</button>
+                 <button type="submit" class="btn btn-primary">Logar</button><br/><br/>
+<a href="loginUsuario.php">Não sou cadastrado,por favor deixa eu entrar</a>
+
+
+
             </div>                                      
           </div>
 

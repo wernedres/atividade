@@ -56,7 +56,7 @@
         
  
         </table>
-    <a href="CursoInsert.php" class="btn btn-sm btn-success glyphicon glyphicon-ok"> Novo Curso</a>
+    <a href="cursInsert.php" class="btn btn-sm btn-success glyphicon glyphicon-ok"> Novo Curso</a>
     </div>
   
 <?php require_once("footer.php"); ?>

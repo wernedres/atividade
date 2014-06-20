@@ -33,7 +33,7 @@
         </li>
                  <li><a href="contList.php">Contato</a></li>
                  <li><a href="userList.php">Alunos</a></li>
-                 <li><a href="cursos.php">Cursos</a></li>
+                 <li><a href="cursList.php">Cursos</a></li>
                  <li><a href="turmas.php">Turmas</a></li>
                  <li class="active"><a href="logout.php" >Logout(Sair)</a></li>
 

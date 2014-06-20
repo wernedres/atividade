@@ -5,7 +5,15 @@
 
 <?php include_once 'connection.php';
 
-$consulta = pg_query ("SELECT * from contatos order by cont_nome;");
+$consulta = pg_query ("SELECT * from contatos;");
+
+echo pg_num_rows($consulta);
+echo "asdasdasdasdasdasdasdasdasdasd<br>";
+echo "coisa";
+echo pg_num_rows($consulta);
+echo ($consulta) ? "sim"  : "nao";
+echo "chata";
+
 ?>
 
 
@@ -29,7 +37,7 @@ $consulta = pg_query ("SELECT * from contatos order by cont_nome;");
                     <th>Email</th>
                     <th>Profissao</th>
                     <th>Endereço</th>
-  					<th>Editar</th>
+  					        <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
  </thead>   
@@ -44,7 +52,7 @@ $consulta = pg_query ("SELECT * from contatos order by cont_nome;");
             <td><?php echo $linha->cont_email; ?></td>
             <td><?php echo $linha->cont_profissao; ?></td>
             <td><?php echo $linha->cont_endereco; ?></td>
-          <td><?php echo "<a href='contEdit.php?id=$linha->cont_id&nome=$linha->cont_nome&telefone=$linha->cont_telefone&email=$linha->cont_email&profissao=$linha->cont_profissao&endereço=$linha->cont_endereco' class='btn btn-info glyphicon glyphicon-list'>Editar</a>"; ?></td>
+          <td><?php echo "<a href='contEdit.php?id=$linha->cont_id&nome=$linha->cont_nome&telefone=$linha->cont_telefone&email=$linha->cont_email&profissao=$linha->cont_profissao&endereco=$linha->cont_endereco' class='btn btn-info glyphicon glyphicon-list'>Editar</a>"; ?></td>
           <td><?php echo "<a href='contDelet.php?id=$linha->cont_id' class='btn btn-danger  glyphicon glyphicon-trash'>Excluir</a>"; ?></td>
                     </tr>
 

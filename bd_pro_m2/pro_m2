@@ -1,0 +1,385 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.2.4
+-- Dumped by pg_dump version 9.2.4
+-- Started on 2014-06-20 13:08:58 BRT
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 176 (class 3079 OID 11767)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2005 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 169 (class 1259 OID 16497)
+-- Name: categoria; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE categoria (
+    cate_id integer NOT NULL,
+    cate_nome character varying
+);
+
+
+ALTER TABLE public.categoria OWNER TO postgres;
+
+--
+-- TOC entry 168 (class 1259 OID 16495)
+-- Name: categoria_cate_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE categoria_cate_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.categoria_cate_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2006 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: categoria_cate_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE categoria_cate_id_seq OWNED BY categoria.cate_id;
+
+
+--
+-- TOC entry 171 (class 1259 OID 16508)
+-- Name: contatos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE contatos (
+    cont_id integer NOT NULL,
+    cont_nome character varying,
+    cont_telefone character varying,
+    cont_email character varying,
+    cont_profissao character varying,
+    cont_endereco character varying
+);
+
+
+ALTER TABLE public.contatos OWNER TO postgres;
+
+--
+-- TOC entry 170 (class 1259 OID 16506)
+-- Name: contatos_cont_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE contatos_cont_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contatos_cont_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2007 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: contatos_cont_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE contatos_cont_id_seq OWNED BY contatos.cont_id;
+
+
+--
+-- TOC entry 175 (class 1259 OID 16550)
+-- Name: curso; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE curso (
+    curs_id integer NOT NULL,
+    curs_nome character varying,
+    curs_duracao character varying,
+    curs_qtdaluno character varying,
+    curs_professor integer,
+    curs_categoria integer
+);
+
+
+ALTER TABLE public.curso OWNER TO postgres;
+
+--
+-- TOC entry 174 (class 1259 OID 16548)
+-- Name: curso_curs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE curso_curs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.curso_curs_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2008 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: curso_curs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE curso_curs_id_seq OWNED BY curso.curs_id;
+
+
+--
+-- TOC entry 173 (class 1259 OID 16539)
+-- Name: professor; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE professor (
+    prof_id integer NOT NULL,
+    prof_nome character varying
+);
+
+
+ALTER TABLE public.professor OWNER TO postgres;
+
+--
+-- TOC entry 172 (class 1259 OID 16537)
+-- Name: professor_prof_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE professor_prof_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.professor_prof_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2009 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: professor_prof_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE professor_prof_id_seq OWNED BY professor.prof_id;
+
+
+--
+-- TOC entry 1976 (class 2604 OID 16500)
+-- Name: cate_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY categoria ALTER COLUMN cate_id SET DEFAULT nextval('categoria_cate_id_seq'::regclass);
+
+
+--
+-- TOC entry 1977 (class 2604 OID 16511)
+-- Name: cont_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY contatos ALTER COLUMN cont_id SET DEFAULT nextval('contatos_cont_id_seq'::regclass);
+
+
+--
+-- TOC entry 1979 (class 2604 OID 16553)
+-- Name: curs_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY curso ALTER COLUMN curs_id SET DEFAULT nextval('curso_curs_id_seq'::regclass);
+
+
+--
+-- TOC entry 1978 (class 2604 OID 16542)
+-- Name: prof_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY professor ALTER COLUMN prof_id SET DEFAULT nextval('professor_prof_id_seq'::regclass);
+
+
+--
+-- TOC entry 1991 (class 0 OID 16497)
+-- Dependencies: 169
+-- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY categoria (cate_id, cate_nome) FROM stdin;
+1	Programação
+2	Designer
+3	Banco de Dados
+4	Prototipagem
+\.
+
+
+--
+-- TOC entry 2010 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: categoria_cate_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('categoria_cate_id_seq', 4, true);
+
+
+--
+-- TOC entry 1993 (class 0 OID 16508)
+-- Dependencies: 171
+-- Data for Name: contatos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY contatos (cont_id, cont_nome, cont_telefone, cont_email, cont_profissao, cont_endereco) FROM stdin;
+2	Filipizaum	9123-2213123	felipe@hotmail.com	programador	av: das guianas
+3	vlavla	1414	vla@hot.com	Pagamador	Rua Para
+\.
+
+
+--
+-- TOC entry 2011 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: contatos_cont_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('contatos_cont_id_seq', 3, true);
+
+
+--
+-- TOC entry 1997 (class 0 OID 16550)
+-- Dependencies: 175
+-- Data for Name: curso; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY curso (curs_id, curs_nome, curs_duracao, curs_qtdaluno, curs_professor, curs_categoria) FROM stdin;
+1	Postgres	mil anos	30	1	3
+5	testando	teste2	26	1	2
+4	PHP4	33 meses	3	1	2
+\.
+
+
+--
+-- TOC entry 2012 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: curso_curs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('curso_curs_id_seq', 5, true);
+
+
+--
+-- TOC entry 1995 (class 0 OID 16539)
+-- Dependencies: 173
+-- Data for Name: professor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY professor (prof_id, prof_nome) FROM stdin;
+1	Pierre Viana
+4	Walter Nascimento
+5	Felipe Lima
+\.
+
+
+--
+-- TOC entry 2013 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: professor_prof_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('professor_prof_id_seq', 5, true);
+
+
+--
+-- TOC entry 1981 (class 2606 OID 16505)
+-- Name: categoria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY categoria
+    ADD CONSTRAINT categoria_pkey PRIMARY KEY (cate_id);
+
+
+--
+-- TOC entry 1983 (class 2606 OID 16516)
+-- Name: contatos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY contatos
+    ADD CONSTRAINT contatos_pkey PRIMARY KEY (cont_id);
+
+
+--
+-- TOC entry 1987 (class 2606 OID 16568)
+-- Name: curso_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY curso
+    ADD CONSTRAINT curso_pkey PRIMARY KEY (curs_id);
+
+
+--
+-- TOC entry 1985 (class 2606 OID 16547)
+-- Name: professor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY professor
+    ADD CONSTRAINT professor_pkey PRIMARY KEY (prof_id);
+
+
+--
+-- TOC entry 1988 (class 2606 OID 16557)
+-- Name: curso_categoria_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY curso
+    ADD CONSTRAINT curso_categoria_fkey FOREIGN KEY (curs_categoria) REFERENCES categoria(cate_id);
+
+
+--
+-- TOC entry 1989 (class 2606 OID 16562)
+-- Name: curso_professor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY curso
+    ADD CONSTRAINT curso_professor_fkey FOREIGN KEY (curs_professor) REFERENCES professor(prof_id);
+
+
+--
+-- TOC entry 2004 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2014-06-20 13:08:58 BRT
+
+--
+-- PostgreSQL database dump complete
+--
+

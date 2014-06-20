@@ -2,17 +2,7 @@
 
 
 
-<?php require_once("connection.php"); 
-
-$id=['id'];
-$nome=['nome'];
-$telefone=['telefone'];
-$email=['email'];
-$profissao=['profissao'];
-$endereco=['endereco'];
-
-?>
-
+<?php require_once("connection.php");?>
 <?php require_once("header.php"); ?>
 <?php require_once("menu.php"); ?>
 
@@ -87,7 +77,7 @@ $endereco=['endereco'];
             <div class="form-group">
                 <label class="col-sm-2 control-label">Endereço</label>
                     <div class="col-sm-3">
-                        <input name="endereco" type="text"  placeholder="Digite o endereço" required value="<?php echo $_GET['endereço'];?>">
+                        <input name="endereco" type="text"  placeholder="Digite o endereço" required value="<?php echo $_GET['endereco'];?>">
                      </div>
             </div>
 

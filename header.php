@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-if(!$_SESSION['logado']){
+if(!$_SESSION['logado'])  {
 header("location: pageLogin.php");
 }    
 ?>

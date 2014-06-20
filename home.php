@@ -29,4 +29,3 @@ A empresa aplica um rígido controle de qualidade, antes de comercializar um nov
             
     </div>
 </div> 
-<?php include_once 'footer.php' ?>

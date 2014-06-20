@@ -31,7 +31,7 @@ $professores=array(
 					
 					<?php for($i=1;$i<=100;$i++){
 
-							echo "<option value=''>        ". $i ." mes      </option>" ;
+							echo "<option value='". $." '>        ". $i ." mes      </option>" ;
 
 							
 						} ?>

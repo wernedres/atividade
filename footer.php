@@ -3,7 +3,7 @@
 
 </div>
 
-<div id="footer"  class="alert alert-success"  ><p text-align="center">Wernedres - Todos os direitos do Bootstrap reservados</p></div>
+<div id="footer"  class="alert alert-success"  ></b><em><b>Wernedres - Todos os direitos do Bootstrap reservados</b></em ></div>
 
 
   </body>

@@ -5,7 +5,7 @@
 
 <?php include_once 'connection.php';
 
-$consulta = pg_query ("SELECT * from professor order by prof_nome;");
+$consulta = pg_query ("SELECT * from categoria order by cate_nome;");
 ?>
 
 
@@ -25,7 +25,7 @@ $consulta = pg_query ("SELECT * from professor order by prof_nome;");
 
                     <th>Id</th>
                     <th>Nome</th>
-                   	<th>Editar</th>
+                    <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
  </thead>   
@@ -34,11 +34,11 @@ $consulta = pg_query ("SELECT * from professor order by prof_nome;");
 
            <tr>
 
-            <td><?php echo $linha->prof_id; ?></td>
-            <td><?php echo $linha->prof_nome; ?></td>
+            <td><?php echo $linha->cate_id; ?></td>
+            <td><?php echo $linha->cate_nome; ?></td>
            
-          <td><?php echo "<a href='profEdit.php?id=$linha->prof_id&nome=$linha->prof_nome' class='btn btn-info glyphicon glyphicon-list'>Editar</a>"; ?></td>
-          <td><?php echo "<a href='profDelet.php?id=$linha->prof_id' class='btn btn-danger  glyphicon glyphicon-trash'>Excluir</a>"; ?></td>
+          <td><?php echo "<a href='cateEdit.php?id=$linha->cate_id&nome=$linha->cate_nome' class='btn btn-info glyphicon glyphicon-list'>Editar</a>"; ?></td>
+          <td><?php echo "<a href='cateDelet.php?id=$linha->cate_id' class='btn btn-danger  glyphicon glyphicon-trash'>Excluir</a>"; ?></td>
                     </tr>
 
 
@@ -47,7 +47,7 @@ $consulta = pg_query ("SELECT * from professor order by prof_nome;");
        
         </table>
 
- <a href="profInsert.php" class="btn btn-sm btn-success glyphicon glyphicon-ok"> Novo Professor</a>
+ <a href="cateInsert.php" class="btn btn-sm btn-success glyphicon glyphicon-ok"> Nova categoria</a>
        
 
 </div>

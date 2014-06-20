@@ -16,6 +16,10 @@ $consulta = pg_query("SELECT * from usuarios order by user_nome;");
 
 <h4 class="alert alert-success">Alunos cadastrados</h4>
 
+
+
+        <div class="table table-responsive"      >
+
            <table class="table table-striped">
 
    <thead>
@@ -48,6 +52,8 @@ $consulta = pg_query("SELECT * from usuarios order by user_nome;");
               <a href="userInsert.php" class="btn btn-sm btn-success glyphicon glyphicon-ok"> Novo Aluno</a>
         </div>
 </div>
+
+</
 
 
 <?php require_once("footer.php"); 
