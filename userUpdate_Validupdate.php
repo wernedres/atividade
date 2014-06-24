@@ -3,13 +3,12 @@
 include 'connection.php';
 
 $id = $_POST['id'];
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$login= $_POST['login'];
-$telefone = $_POST['telefone'];
+$usuario = $_POST['usuario'];
+$senha= $_POST['senha'];
 
-if ($nome && $email && $login && $telefone) {
-    pg_query("UPDATE usuarios SET user_nome = '$nome', user_email = '$email', user_login = '$login', user_telefone = '$telefone'" . "where user_id =  $id;");
+
+if ($usuario && $senha) {
+    pg_query("UPDATE usuarios SET usuario = '$usuario', senha= '$senha'" . "where id =  $id;");
     header("location: userList.php");
 }
 ?>

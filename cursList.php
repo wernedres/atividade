@@ -38,21 +38,9 @@
 
               <?php 
                
-                $consulta = pg_query ("SELECT * from curso order by curs_nome;");
+                $consulta = pg_query ("SELECT * from listcurso;");
 
                while ($linha = pg_fetch_object($consulta)): 
-
-               $idDaCategoria = $linha->curs_categoria; 
-               $consultaCategoria = pg_query ("SELECT * from Categoria where cate_id =$idDaCategoria;");
-               $linhaCategoria = pg_fetch_object($consultaCategoria); 
-
-                
-               $idDoProfessor = $linha->curs_professor; 
-               $consultaProfessor = pg_query ("SELECT * from professor where prof_id =$idDoProfessor;");
-               $linhaProfessor = pg_fetch_object($consultaProfessor); 
-
-                
-
 
                 ?>
  
@@ -64,10 +52,10 @@
             <td><?php echo $linha->curs_id; ?></td>
             <td><?php echo $linha->curs_nome; ?></td>
             <td><?php echo $linha->curs_duracao; ?></td>
-            <td><?php echo $linhaCategoria->cate_nome; ?></td>
-            <td><?php echo $linhaProfessor->prof_nome; ?></td>
+            <td><?php echo $linha->cate_nome; ?></td>
+            <td><?php echo $linha->prof_nome; ?></td>
             <td><?php echo $linha->curs_qtdaluno; ?></td>   
-            <td><?php echo "<a href='cursEdit.php?id=$linha->curs_id&nome=$linha->curs_nome&duracao=$linha->curs_duracao&categorias=$linhaCategoria->cate_nome&qtdAluno=$linha->curs_qtdaluno' class='btn btn-info glyphicon glyphicon-list'>Editar</a>"; ?></td>
+            <td><?php echo "<a href='cursEdit.php?id=$linha->curs_id&nome=$linha->curs_nome&duracao=$linha->curs_duracao&categorias=$linha->cate_nome&qtdAluno=$linha->curs_qtdaluno' class='btn btn-info glyphicon glyphicon-list'>Editar</a>"; ?></td>
 
 
 

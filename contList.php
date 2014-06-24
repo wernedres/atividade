@@ -5,14 +5,7 @@
 
 <?php include_once 'connection.php';
 
-$consulta = pg_query ("SELECT * from contatos;");
-
-echo pg_num_rows($consulta);
-echo "asdasdasdasdasdasdasdasdasdasd<br>";
-echo "coisa";
-echo pg_num_rows($consulta);
-echo ($consulta) ? "sim"  : "nao";
-echo "chata";
+$consulta = pg_query ("SELECT * from contatos order by cont_nome;");
 
 ?>
 

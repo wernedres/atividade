@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Nome</label>
                        <div class="col-sm-3">
-                           <input name="nome"  type="text"  placeholder="Digite a nome" required>
+                           <input name="nome"  type="text"  placeholder="Digite a nome" require>
 
                        </div> 
                 </div>
@@ -46,7 +46,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Login</label>
                        <div class="col-sm-3">
-                           <input name="login"  type="text"  placeholder="Digite o login " required>
+                           <input name="login"  type="text"  placeholder="Digite o login " require>
 
                         </div>
                 </div>
